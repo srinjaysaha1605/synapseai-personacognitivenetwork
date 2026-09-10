@@ -89,31 +89,31 @@ Speak with clarity according to your persona rules. Avoid robotic fluff or preac
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md overflow-y-auto">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-md overflow-y-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
-          className="relative w-full max-w-2xl bg-zinc-950 rounded-2xl border border-white/15 p-6 sm:p-8 my-8 shadow-2xl"
+          className="relative w-full max-w-2xl max-h-[90dvh] overflow-y-auto bg-zinc-950 rounded-xl sm:rounded-2xl border border-white/15 p-4 sm:p-8 my-auto shadow-2xl overscroll-contain"
         >
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 p-2 rounded-lg bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+            className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 p-2 rounded-lg bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors cursor-pointer"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
 
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/15 text-white">
-              <Sparkles className="w-5 h-5" />
+          <div className="flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6 pr-8">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/15 text-white shrink-0">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <h2 className="text-xl font-syne font-bold text-white">Create Custom Persona</h2>
-              <p className="text-xs text-zinc-400 font-mono">Design a custom behavior and persona mode</p>
+              <h2 className="text-lg sm:text-xl font-syne font-bold text-white">Create Custom Persona</h2>
+              <p className="text-[11px] sm:text-xs text-zinc-400 font-mono">Design a custom behavior and persona mode</p>
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5 text-xs font-sans text-zinc-300">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 text-xs font-sans text-zinc-300">
             {/* Persona Name & Tagline */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>

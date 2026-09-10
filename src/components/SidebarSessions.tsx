@@ -111,14 +111,14 @@ export const SidebarSessions: React.FC<SidebarSessionsProps> = ({
           animate={{ x: 0 }}
           exit={{ x: '-100%' }}
           transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          className="absolute inset-y-0 left-0 w-full max-w-sm bg-zinc-950 border-r border-white/15 p-6 flex flex-col justify-between shadow-2xl"
+          className="absolute inset-y-0 left-0 w-[86vw] max-w-sm bg-zinc-950 border-r border-white/15 p-4 sm:p-6 flex flex-col justify-between shadow-2xl"
         >
-          <div>
+          <div className="flex-1 overflow-hidden flex flex-col">
             {/* Drawer Header */}
-            <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
+            <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10 mb-3 sm:mb-5">
               <div className="flex items-center gap-2">
                 <MessageSquare className="w-5 h-5 text-white" />
-                <h2 className="font-syne font-bold text-lg text-white">Saved Conversations</h2>
+                <h2 className="font-syne font-bold text-base sm:text-lg text-white">Saved Conversations</h2>
               </div>
               <button
                 onClick={onClose}
@@ -134,14 +134,14 @@ export const SidebarSessions: React.FC<SidebarSessionsProps> = ({
                 onNewSession();
                 onClose();
               }}
-              className="w-full py-2.5 px-4 rounded-xl bg-white text-black font-mono font-medium text-xs hover:bg-zinc-200 transition-colors cursor-pointer flex items-center justify-center gap-2 mb-4"
+              className="w-full py-2.5 px-4 rounded-xl bg-white text-black font-mono font-medium text-xs hover:bg-zinc-200 transition-colors cursor-pointer flex items-center justify-center gap-2 mb-3"
             >
               <Plus className="w-4 h-4" />
               <span>New Conversation</span>
             </button>
 
             {/* Search Input */}
-            <div className="relative mb-4">
+            <div className="relative mb-3">
               <Search className="w-4 h-4 text-zinc-500 absolute left-3 top-2.5" />
               <input
                 type="text"
@@ -153,7 +153,7 @@ export const SidebarSessions: React.FC<SidebarSessionsProps> = ({
             </div>
 
             {/* Session List */}
-            <div className="space-y-2 max-h-[60vh] overflow-y-auto pr-1">
+            <div className="space-y-1.5 sm:space-y-2 flex-1 overflow-y-auto pr-0.5 overscroll-contain">
               {filteredSessions.length === 0 ? (
                 <div className="text-center py-8 text-xs text-zinc-500 font-mono">
                   No saved conversations.
@@ -170,24 +170,24 @@ export const SidebarSessions: React.FC<SidebarSessionsProps> = ({
                         onSelectSession(session.id);
                         onClose();
                       }}
-                      className={`group relative p-3.5 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between ${
+                      className={`group relative p-2.5 sm:p-3.5 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between gap-2 ${
                         isActive
                           ? 'bg-white/10 border-white/25 text-white'
                           : 'bg-black border-white/10 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-200'
                       }`}
                     >
-                      <div className="flex items-center gap-3 overflow-hidden">
+                      <div className="flex items-center gap-2.5 sm:gap-3 overflow-hidden min-w-0 flex-1">
                         <div
                           className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 border border-white/10 bg-zinc-900 text-white"
                         >
                           <PersonaIcon name={persona.iconName} size={14} />
                         </div>
-                        <div className="overflow-hidden">
+                        <div className="overflow-hidden min-w-0 flex-1">
                           <h3 className="font-sans font-medium text-xs text-white truncate">
                             {session.title || 'Untitled Conversation'}
                           </h3>
-                          <div className="flex items-center gap-2 text-[10px] text-zinc-400 font-sans mt-0.5">
-                            <Clock className="w-3 h-3" />
+                          <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] text-zinc-400 font-sans mt-0.5">
+                            <Clock className="w-3 h-3 shrink-0" />
                             <span>{new Date(session.updatedAt).toLocaleDateString()}</span>
                             <span>•</span>
                             <span>{session.messages.length} {session.messages.length === 1 ? 'msg' : 'msgs'}</span>
@@ -196,13 +196,13 @@ export const SidebarSessions: React.FC<SidebarSessionsProps> = ({
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="flex items-center gap-1 opacity-90 group-hover:opacity-100 transition-opacity">
+                      <div className="flex items-center gap-1 shrink-0">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             exportSessionMarkdown(session);
                           }}
-                          className="px-1.5 py-1 rounded bg-white/5 hover:bg-white/15 text-zinc-400 hover:text-white font-mono text-[9px] uppercase transition-colors cursor-pointer"
+                          className="px-1.5 py-1 rounded bg-white/5 hover:bg-white/15 text-zinc-400 hover:text-white font-mono text-[9px] uppercase transition-colors cursor-pointer hidden sm:inline"
                           title="Export as Markdown (.md)"
                         >
                           .MD
@@ -215,7 +215,8 @@ export const SidebarSessions: React.FC<SidebarSessionsProps> = ({
                           className="px-1.5 py-1 rounded bg-white/5 hover:bg-white/15 text-zinc-400 hover:text-white font-mono text-[9px] uppercase transition-colors cursor-pointer"
                           title="Export as JSON (.json)"
                         >
-                          .JSON
+                          <Download className="w-3 h-3 sm:hidden" />
+                          <span className="hidden sm:inline">.JSON</span>
                         </button>
 
                         {confirmDeleteId === session.id ? (
@@ -228,7 +229,7 @@ export const SidebarSessions: React.FC<SidebarSessionsProps> = ({
                             className="px-2 py-0.5 rounded bg-rose-600 hover:bg-rose-500 text-white font-mono text-[9px] uppercase font-bold transition-colors cursor-pointer"
                             title="Confirm deletion"
                           >
-                            Delete?
+                            Del?
                           </button>
                         ) : (
                           <button
@@ -250,7 +251,7 @@ export const SidebarSessions: React.FC<SidebarSessionsProps> = ({
             </div>
           </div>
 
-          <div className="pt-4 border-t border-white/10 text-[11px] font-mono text-zinc-500 text-center uppercase tracking-wider">
+          <div className="pt-3 sm:pt-4 border-t border-white/10 text-[10px] sm:text-[11px] font-mono text-zinc-500 text-center uppercase tracking-wider shrink-0">
             Synapse AI Workspace
           </div>
         </motion.div>

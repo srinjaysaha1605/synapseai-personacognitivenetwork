@@ -1,20 +1,27 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# ⚡ Synapse AI — Multi-Persona Cognitive Reasoning Engine
 
-# Run and deploy your AI Studio app
+Synapse AI is an interactive AI workspace designed around specialized reasoning modes. Instead of a single generic chatbot, Synapse AI allows you to switch between cognitive personas—such as **Devil's Advocate**, **Socratic Guide**, **Empirical Analyst**, **Strategic Architect**, **Meta-Philosopher**, and **Cybernetic Futurist**—to stress-test ideas, uncover hidden assumptions, and gain deeper insights.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/1da528f6-1221-4190-bd70-6687c8f5fbd3
+## ✨ Features
 
-## Run Locally
+- **🎭 Specialized Reasoning Modes**:
+  - 😈 **Devil's Advocate**: Challenges assumptions, exposes weak logic, and tests edge cases.
+  - 👁️ **Socratic Guide**: Guides you to answers through core principles and probing questions.
+  - 👓 **Empirical Analyst**: Evaluates claims against data, baseline rates, and objective evidence.
+  - 🏛️ **Strategic Architect**: Transforms complex problems into actionable, phased roadmaps.
+  - 🌀 **Meta-Philosopher**: Elevates queries to broader human values and philosophical frameworks.
+  - 👁️‍🗨️ **Cybernetic Futurist**: Analyzes problems through dynamic systems, networks, and feedback loops.
 
-**Prerequisites:**  Node.js
+- **🛠️ Custom Persona Builder**: Create your own custom persona modes with tailored system directives, communication styles, and strict behavioral rules.
 
+- **🔍 Persona Rule Inspector**: View full system directives, reasoning rules, and forbidden behaviors for any active persona.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- **💬 Real-Time Streaming**: Instant response streaming powered by Google's official `@google/genai` SDK over server-side Express proxy endpoints.
+
+- **📂 Saved Conversations**: Search, manage, and delete previous conversation threads.
+
+- **📥 Dual Export Formats**: Download any conversation as a formatted Markdown (`.md`) file or structured JSON (`.json`).
+
+- **🎨 High-Contrast Aesthetic**: High-contrast, dark interface built with Tailwind CSS, custom geometric iconography, and smooth Motion animations.

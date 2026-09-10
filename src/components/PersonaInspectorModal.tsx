@@ -19,38 +19,38 @@ export const PersonaInspectorModal: React.FC<PersonaInspectorModalProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-md">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
           transition={{ duration: 0.25 }}
-          className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-zinc-950 rounded-2xl border border-white/15 p-6 sm:p-8 shadow-2xl"
+          className="relative w-full max-w-2xl max-h-[90dvh] overflow-y-auto bg-zinc-950 rounded-xl sm:rounded-2xl border border-white/15 p-4 sm:p-8 shadow-2xl overscroll-contain"
         >
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 p-2 rounded-lg bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+            className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 p-2 rounded-lg bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors cursor-pointer"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
 
           {/* Persona Header */}
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 pr-8">
             <div
-              className="w-12 h-12 rounded-xl flex items-center justify-center border border-white/15 bg-zinc-900 text-white"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center border border-white/15 bg-zinc-900 text-white shrink-0"
             >
-              <PersonaIcon name={persona.iconName} size={24} />
+              <PersonaIcon name={persona.iconName} size={20} />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <h2 className="text-2xl font-syne font-bold text-white">{persona.name}</h2>
+                <h2 className="text-xl sm:text-2xl font-syne font-bold text-white truncate">{persona.name}</h2>
               </div>
-              <p className="text-xs font-mono text-zinc-400 mt-1">{persona.tagline}</p>
+              <p className="text-[11px] sm:text-xs font-mono text-zinc-400 mt-0.5 truncate">{persona.tagline}</p>
             </div>
           </div>
 
-          <div className="space-y-6 text-sm text-zinc-300 font-sans">
+          <div className="space-y-4 sm:space-y-6 text-sm text-zinc-300 font-sans">
             {/* Description */}
             <div className="bg-black p-4 rounded-xl border border-white/10">
               <span className="text-xs font-mono uppercase text-zinc-400 block mb-1">

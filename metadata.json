@@ -1,0 +1,6 @@
+{
+  "name": "Synapse AI - Persona Cognitive Network",
+  "description": "A futuristic conversational AI platform with distinct behavioral personas, streaming reasoning, and a 3D glass aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

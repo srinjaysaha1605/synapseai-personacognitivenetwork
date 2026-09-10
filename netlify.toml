@@ -1,0 +1,26 @@
+[build]
+  command = "bun run build"
+  publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+
+[dev]
+  command = "vite"
+  port = 8889
+  targetPort = 5173
+
+[[redirects]]
+  from = "/api/chat"
+  to = "/.netlify/functions/chat"
+  status = 200
+
+[[redirects]]
+  from = "/api/health"
+  to = "/.netlify/functions/health"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

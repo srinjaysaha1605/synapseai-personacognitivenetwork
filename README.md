@@ -1,3 +1,5 @@
+<div align="center">
+
 # ⚡ Synapse AI — Multi-Persona Cognitive Reasoning Engine
 
 Synapse AI is an interactive AI workspace designed around specialized reasoning modes. Instead of a single generic chatbot, Synapse AI allows you to switch between cognitive personas—such as **Devil's Advocate**, **Socratic Guide**, **Empirical Analyst**, **Strategic Architect**, **Meta-Philosopher**, and **Cybernetic Futurist**—to stress-test ideas, uncover hidden assumptions, and gain deeper insights.

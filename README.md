@@ -6,8 +6,6 @@ Synapse AI is an interactive AI workspace designed around specialized reasoning 
 
 ---
 
-</div>
-
 ## ✨ Features
 
 - **🎭 Specialized Reasoning Modes**:

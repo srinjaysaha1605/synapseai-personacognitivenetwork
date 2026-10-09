@@ -35,7 +35,13 @@ export default function App() {
   const [settings, setSettings] = useState<AppSettings>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.SETTINGS);
-      return saved ? { ...DEFAULT_SETTINGS, ...JSON.parse(saved) } : DEFAULT_SETTINGS;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        const validModel: 'gemini-3.8-flash' | 'gemini-3.7-flash' =
+          parsed.model === 'gemini-3.7-flash' ? 'gemini-3.7-flash' : 'gemini-3.8-flash';
+        return { ...DEFAULT_SETTINGS, ...parsed, model: validModel };
+      }
+      return DEFAULT_SETTINGS;
     } catch {
       return DEFAULT_SETTINGS;
     }

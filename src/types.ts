@@ -59,7 +59,7 @@ export interface ConversationSession {
 }
 
 export interface AppSettings {
-  model: string; // e.g. 'gemini-3.8-flash' or 'gemini-3.1-pro-preview'
+  model: 'gemini-3.8-flash' | 'gemini-3.7-flash';
   temperature: number;
   autoScroll: boolean;
   soundEffects: boolean;

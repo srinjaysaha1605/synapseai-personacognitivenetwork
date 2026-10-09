@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AppSettings } from '../types';
-import { X, Settings, Sliders, Database } from 'lucide-react';
+import { X, Settings, Sliders, Database, Cpu } from 'lucide-react';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -49,6 +49,40 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           </div>
 
           <div className="space-y-4 sm:space-y-6 text-xs font-sans text-zinc-300">
+            {/* Model Selection */}
+            <div>
+              <label className="block text-zinc-400 font-mono uppercase mb-2 flex items-center gap-2">
+                <Cpu className="w-4 h-4 text-zinc-300" />
+                <span>Active Model</span>
+              </label>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => onUpdateSettings({ model: 'gemini-3.8-flash' })}
+                  className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
+                    settings.model === 'gemini-3.8-flash'
+                      ? 'bg-white text-black border-white font-medium shadow-md'
+                      : 'bg-black border-white/10 text-zinc-400 hover:text-white hover:bg-zinc-900'
+                  }`}
+                >
+                  <div className="font-mono text-xs font-semibold">Gemini 3.8 Flash</div>
+                  <div className="text-[10px] mt-0.5 opacity-80 font-sans">Primary default</div>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onUpdateSettings({ model: 'gemini-3.7-flash' })}
+                  className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
+                    settings.model === 'gemini-3.7-flash'
+                      ? 'bg-white text-black border-white font-medium shadow-md'
+                      : 'bg-black border-white/10 text-zinc-400 hover:text-white hover:bg-zinc-900'
+                  }`}
+                >
+                  <div className="font-mono text-xs font-semibold">Gemini 3.7 Flash</div>
+                  <div className="text-[10px] mt-0.5 opacity-80 font-sans">Fast hybrid</div>
+                </button>
+              </div>
+            </div>
+
             {/* Creativity Slider */}
             <div>
               <div className="flex justify-between items-center mb-1.5 font-mono">
